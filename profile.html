@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, intial-scale=1" />
+    <link rel="stylesheet" href="./register.css" />
+  </head>
+  <body>
+    <div class="profile">
+      <h1>profile picture</h1>
+      <img src="image1.jpg" id="photo" />
+      <input type="file" id="file" />
+      <label for="file" id="uploadbtn">upload newpic</label>
+    </div>
+    <script>
+      const imgDiv = document.querySelector(".profile");
+      const img = document.querySelector("#photo");
+      const file = document.querySelector("#file");
+      const uploadbtn = document.querySelector("#uploadbtn");
+
+      file.addEventListener("change", function () {
+        const choosefile = this.files[0];
+        if (choosefile) {
+          const reader = new FileReader();
+          reader.addEventListener("load", function () {
+            img.setAttribute("src", reader.result);
+          });
+          reader.readAsDataURL(choosefile);
+        }
+      });
+    </script>
+  </body>
+</html>
