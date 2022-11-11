@@ -1,0 +1,32 @@
+<h1>employee dashboard</h1>
+<nav class="navbar">
+  <input
+    class="form-control"
+    type="text"
+    name="FullName"
+    [(ngModel)]="FullName"
+    (ngModelChange)="Search()"
+    placeholder="Enter FullName to Search"
+  />
+</nav>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>FullName</th>
+      <th>ObtainedMarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="
+        let users of users | paginate: { itemsPerPage: 4, currentPage: p }
+      "
+    >
+      <td>{{ users.id }}</td>
+      <td>{{ users.FullName }}</td>
+      <td>{{ users.ObtainedMarks }}</td>
+    </tr>
+  </tbody>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</table>
