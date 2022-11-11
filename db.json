@@ -1,0 +1,104 @@
+{
+  "Users": [
+    {
+      "id": 1,
+      "FullName": "hardik",
+      "ObtainedMarks": 80
+    },
+    {
+      "id": 2,
+      "FullName": "dhoni",
+      "ObtainedMarks": 85
+    },
+    {
+      "id": 3,
+      "FullName": "sachine",
+      "ObtainedMarks": 95
+    },
+    {
+      "id": 4,
+      "FullName": "virat",
+      "ObtainedMarks": 88
+    },
+    {
+      "id": 5,
+      "FullName": "Prudhvi",
+      "ObtainedMarks": 90
+    },
+    {
+      "id": 6,
+      "FullName": "Ramu",
+      "ObtainedMarks": 92
+    },
+    {
+      "id": 7,
+      "FullName": "Kiran",
+      "ObtainedMarks": 98
+    },
+    {
+      "id": 8,
+      "FullName": "SaiTeja",
+      "ObtainedMarks": 90
+    },
+    {
+      "id": 9,
+      "FullName": "Sai",
+      "ObtainedMarks": 77
+    },
+    {
+      "id": 10,
+      "FullName": "Uday",
+      "ObtainedMarks": 75
+    },
+    {
+      "id": 11,
+      "FullName": "Mani",
+      "ObtainedMarks": 89
+    },
+    {
+      "id": 12,
+      "FullName": "harikrishna",
+      "ObtainedMarks": 77
+    },
+    {
+      "id": 13,
+      "FullName": "malinga",
+      "ObtainedMarks": 75
+    },
+    {
+      "id": 14,
+      "FullName": "Sreesai",
+      "ObtainedMarks": 91
+    },
+    {
+      "id": 15,
+      "FullName": "Rahul",
+      "ObtainedMarks": 79
+    },
+    {
+      "id": 16,
+      "FullName": "Ram",
+      "ObtainedMarks": 88
+    },
+    {
+      "id": 17,
+      "FullName": "Prashanth",
+      "ObtainedMarks": 69
+    },
+    {
+      "id": 18,
+      "FullName": "Uday",
+      "ObtainedMarks": 85
+    },
+    {
+      "id": 19,
+      "FullName": "shyam",
+      "ObtainedMarks": 96
+    },
+    {
+      "id": 20,
+      "FullName": "Ravikiran",
+      "ObtainedMarks": 77
+    }
+  ]
+}
