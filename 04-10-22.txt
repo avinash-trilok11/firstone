@@ -1,0 +1,56 @@
+04-10-22
+
+pipes
+=======
+https://angular.io/guide/pipes
+-----------------------------------
+How to create Own Pipe??
+ 
+> ng g p pipes/usdInr
+ 
+    a) create 2 files under pipes folder
+       1) usd-inr.pipe.ts
+       2) usd0inr.pipe.spec.ts
+    b) app.module.ts file
+       import.......
+       declarations: [UsdInrPipe]
+ 
+usd-inr.pipe.ts
+----------------
+import {Pipe,PipeTransform} from '@angular/core';
+ 
+@Pipe({
+name: 'usdInr
+})
+export class UsdInrPipe implements PipeTransform{
+ 
+ transform(value: number,...args: number[]): unknown{
+  return value * args[0]; 
+}
+}
+ 
+-----------------------------------------------------------
+app.component.html;
+ 
+<h3> {{ 30 | usdInr: 82 }} </h3>
+@NgModule({4 declartions,imports,provides,b... by natraj (Guest)
+natraj (Guest)10:57
+@NgModule({4 declartions,imports,provides,bootstrap})
+@Component({3 selector, templateUrl,styleUrls})
+@Pipe({1 name: })
+
+---------------------------------------------------------
+====CREATING A NEW FILE
+ng g c temp-ref --inline-style=true --inline-template=true --skip-tests
+ng g c class-binding --inline-style=true --inline-template=true --skip-tests
+----------------------------------------------------------
+https://angular.io/guide/template-reference-variables
+
+
+https://angular.io/api/common/NgStyle
+
+https://angular.io/tutorial/toh-pt0
+https://blog.bitsrc.io/directives-in-angular-6160ce805416
+
+
+https://angular.io/tutorial/toh-pt0

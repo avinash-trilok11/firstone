@@ -1,0 +1,297 @@
+[Yesterday 10:32] natraj (Guest)
+JavaScript:
+
+Data Types
+
+Scopes
+
+Functions: named,callback,function expression, higher order functions,closures
+
+String & Date
+
+JSON obj vs JS Object
+
+Array: map,reduce,filter,sort,includes,find,each,some
+
+Events:
+
+JavaScript Objects vs array vs functions --{​​​​​ }​​​​​ , [], ()
+
+hoisting
+
+DOM manipulations: create/delete elment
+
+[Yesterday 10:34] natraj (Guest)
+JavaScript: 
+
+Data Types
+
+Scopes
+
+Functions: named,callback,function expression, higher order functions,closures
+
+String & Date
+
+JSON obj vs JS Object
+
+Array: map,reduce,filter,sort,includes,find,each,some
+
+Events:
+
+JavaScript Objects vs array vs functions --{​​​​​ }​​​​​ , [], ()
+
+hoisting
+
+DOM manipulations: create/delete elment  ES-6: 
+
+let
+
+const
+
+template string
+
+arrow function
+
+spread operator
+
+destructing 
+
+class
+
+inheritance
+
+named vs default exports
+
+Promise
+
+default function parameters
+
+///////////////////////////////////////////////////////////////////////
+
+var divElement = document.querySelector("#app");
+//1st : static element: create a button with CLick Me and add to div ele
+var button = document.createElement("button");
+var text = document.createTextNode("Click Me");
+button.appendChild(text);
+button.addEventListener("click", () => console.log(button.innerHTML));
+divElement.appendChild(button);
+--------------------------------------------------------------------------
+var x = 1;
+if (x === 1) {
+sayXIsOne();
+}
+if (x > 0 && x < 10) {
+sayXIsInbetween0And10();
+}
+function sayXIsOne() {
+console.log("x is 1");
+}
+function sayXIsInbetween0And10() {
+console.log("x is inbeteween 0 and 10");
+}
+------------------------------------------------------------------------------
+function magic(p, q) {
+if (p) {
+q();
+}
+}
+var x = 1;
+magic(x === 1, sayXIsOne);
+magic(x > 0 && x < 10, sayXIsInbetween0And10);
+function sayXIsOne() {
+console.log("x is 1 !!!");
+}
+function sayXIsInbetween0And10() {
+console.log("x is inbeteween 0 and 10 !!!!");
+}​​​
+----------------------------------------------------------------
+function magic(condition, fun) {
+if (condition) {
+fun();
+}
+}
+var x = 1;
+magic(x === 1, function () {
+console.log("x is 1 $$$$$$");
+});
+magic(x > 0 && x < 10, function () {
+console.log("x is inbeteween 0 and 10 @@@@@@@");
+});
+----------------------------------------------------------
+function magic(condition, fun) {
+if (condition) {
+fun();
+}
+}
+var x = 1;
+magic(x === 1, ()=>console.log("x is 1 $$$$$$"));
+magic(x > 0 && x < 10, ()=>console.log("x is inbeteween 0 and 10 @@@@@@@"));
+------------------------------------------------------------------------------
+var magic = (condition, fun) => (condition ? fun() : null);
+var x = 1;
+magic(x === 1, () => console.log("x is 1"));
+magic(x > 0 && x < 10, () => console.log("x is inbeteween 0 and 10"));
+-----------------------------------------------------------------------------
+var magic = (condition, fun1, fun2) => (condition ? fun1() : fun2());
+var add = () => {
+console.log("add function");
+return "add";
+};
+var sub = () => {
+console.log("sub function");
+return "sub";
+};
+var x = 18;
+magic(x === 1, add, sub);
+------------------------------------------------------------------------
+var magic = (condition, fun1, fun2) => (condition ? fun1() : fun2());
+var x = 18;
+magic(x === 1,
+() => {console.log("add function");return "add";},
+() => {console.log("sub function");return "sub";}
+);
+-----------------------------------------------------------=---
+// var magic = (condition, fun1, fun2) => (condition ? fun1() : fun2());
+function magic(condition, fun1, fun2) {
+if (condition) fun1();
+else fun2();
+}
+var x = 18;
+magic(
+x === 1,
+() => {
+console.log("add function");
+return "add";
+},
+() => {
+console.log("sub function");
+return "sub";
+}
+);
+-----------------------------------------------------------------------
+function printMessageNTimes(msg, no) {
+    for (var i = 1; i <= no; i++) {
+      console.log(msg);
+    }
+  }
+  function getNthLetter(msg, no){
+    return msg.charAt(no);
+  }
+  function getMyString(msg, no){
+    return msg.substring(0,no);
+  }
+ 
+  printMessageNTimes("Renu", 5);
+  console.log(getNthLetter("JavaScript",6));
+  console.log(getMyString('I love JavaScript world', 11));
+ -----------------------------------------------------------------
+function printMessageNTimes(msg, no) {
+  if (no != null && typeof no === "number") {
+    if (msg != null && typeof msg === "string") {
+      for (var i = 1; i <= no; i++) {
+        console.log(msg);
+      }
+    }
+  }
+}
+function getNthLetter(msg, no) {
+  if (no != null && typeof no === "number") {
+    if (msg != null && typeof msg === "string") {
+      return msg.charAt(no);
+    }
+  }
+}
+function getMyString(msg, no) {
+  if (no != null && typeof no === "number") {
+    if (msg != null && typeof msg === "string") {
+      return msg.substring(0, no);
+    }
+  }
+}
+printMessageNTimes("Prudhvi", 3);
+console.log(getNthLetter("JavaScript", 6));
+console.log(getMyString("I love JavaScript world", 11));
+-------------------------------------------------------------------
+
+function magic(fun, msg,no){
+    if (no != null && typeof no === "number") {
+        if (msg != null && typeof msg === "string") {
+            return fun(msg,no);
+        }
+    }
+}
+function printMessageNTimes(msg, no) {
+        for (var i = 1; i <= no; i++) {
+          console.log(msg);
+        }
+  }    
+var getNthLetter = (msg, no)=> msg.charAt(no);  
+var getMyString= (msg, no) => msg.substring(0, no);
+ 
+  magic(printMessageNTimes, "Chaitali", 7);
+  console.log(magic(getNthLetter,"JavaScript", 6));
+  console.log(magic(getMyString,"I love JavaScript world", 20))
+--------------------------------------------------------------------
+function magic(fun, msg,no){
+if (no != null && typeof no === "number") {
+if (msg != null && typeof msg === "string") {
+return fun(msg,no);//business logic
+}
+}
+}
+function printMessageNTimes(msg, no) {
+for (var i = 1; i <= no; i++) {
+console.log(msg);
+}
+}
+var getNthLetter = (msg, no)=> msg.charAt(no);
+var getMyString= (msg, no) => msg.substring(0, no);
+magic(printMessageNTimes, "Chaitali", 7);
+console.log(magic(getNthLetter,"JavaScript", 6));
+console.log(magic(getMyString,"I love JavaScript world", 20));
+---------------------------------------------------------------------------
+function magic(fun, msg, no) {
+if (no != null && typeof no === "number") {
+if (msg != null && typeof msg === "string") {
+return fun(msg, no); //business logic
+}
+}
+}
+magic(
+function (msg, no) {
+for (var i = 1; i <= no; i++) {
+console.log(msg);
+}
+},
+"Chaitali",
+2
+);
+console.log(magic((msg, no) => msg.charAt(no), "JavaScript", 6));
+console.log(
+magic((msg, no) => msg.substring(0, no), "I love JavaScript world", 20)
+);
+---------------------------------------------------------------------------
+function createCounter() {
+  var count = 10;
+  return {
+    increment: function () {
+      count++;
+    },
+    decriment: function () {
+      count--;
+    },
+    currentCount: function () {
+      return count;
+    },
+  };
+}
+var myCounter = createCounter();
+console.log(myCounter.currentCount());//10
+myCounter.increment();
+myCounter.increment();
+myCounter.increment();
+myCounter.increment();
+console.log(myCounter.currentCount());//14
+myCounter.decriment();
+myCounter.decriment();
+console.log(myCounter.currentCount());//12

@@ -1,0 +1,161 @@
+29-09-22
+-----------
+///blocklevel scope
+let x=1
+if(x===1){
+x=2
+console.log("x="+x)
+}
+console.log("x=="+x)
+--------------------------------------
+
+///CONST///
+/*const i = 12;
+console.log(i);
+//i++;
+const player = {
+  id: 1,
+  name: "dhoni",
+};
+//player = {
+  //id: 30,
+  //name: "virat",
+//};
+console.log(player);
+player.id = 204;
+console.log(player);*/
+----------------------------------------------------------
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+--------------------------------------------------------------
+///-----------------------------------------
+///template string///
+/*const id = 1;
+ const name="avi";
+ const sal=22000;
+ 
+ console.log("id="+id+",name="+ name +",")
+
+console.log(${id},${name})*/
+//-------------------------------------
+//deafult function parameters//
+//function add(a,b=5)
+
+/*function add(a, b) {
+
+  if (b === undefined) {
+    b = 1;
+  }*/
+
+/*b = typeof b !== "undefined" ? b : 1;
+  return a + b;*/
+//}
+/*(console.log(add(6));
+console.log(add(2, 3));*/
+
+//---------------------------------------------
+///map method///
+/*const person = {
+    name: "avinash",
+    actions: ["eat", "cook", "learn", "surf"],
+    printActions() {
+      this.actions.forEach((action) => {
+        console.log(this.name + "likes to" + action);
+      });
+    },
+  };
+  person.printActions();*/
+
+/*function total(x,y,z){
+    return x+y+z;
+  }
+  const nos=[1,2,3]
+  console.log("total is :"+total(nos[0],nos[1],nos[2]))
+  console.log("sum is " + total(...nos));*/
+//------------------------------------------------------
+// spread//
+/*const dogs=["d1","d2","d3","d4"];
+const cats=["c1","c2","c3","c4"];
+const animals=["tiger",dogs,"lion",cats,"elephant"]
+console.log(animals)
+
+const animals2=["tiger", ...dogs,"lion", ...cats,"elephant"]
+console.log(animals2)*/
+///---------------------------------------------------------------------------
+////spread///
+/*const { price, description } = {
+  title: "veg sandwitch",
+  price: 200,
+  ingredients: ["bread", "cheese", "veg", "corn"],
+  description: "snacks category",
+};
+console.log(price);
+console.log(description);
+
+const [a, b, ...c] = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+console.log(a);
+console.log(b);
+console.log(c);*/
+//-----------------------------------------
+/*const vacation = {
+  destination: "delhi",
+  travellers: 4,
+  activity: "seminar",
+  cost: 100000,
+};
+function vacationMarketing({ destination, activity }) {
+  return `come to ${destination} first and do some ${activity} later`;
+}
+console.log(vacationMarketing(vacation));*/
+//output->come to delhi first and do some seminar later
+//---------------------------------------------------------------------------------
+/// destructuring with rest operator///
+
+/*const data = {};
+function setKeyAndValue(date, { key, value }) {
+  return {
+    ...date, //{name:'dhoni','type':'keeper'}
+    [key]: value,
+  };
+}
+let currentObj = setKeyAndValue(data, { key: "name", value: "dhoni" });
+console.log(currentObj);
+console.log("-------");
+
+currentObj = setKeyAndValue(currentObj, { key: "type", value: "keeper" });
+console.log(currentObj);*/
+///-----------------------------------------------------------------------------------
+///class-constructor////
+/*class vehicle {
+  constructor(name, wheels) {
+    this.name = name;
+    this.wheels = wheels;
+  }
+  getvehicleInfo() {
+    console.log(`i am a ${this.name} vehicle with ${this.wheels} wheels`);
+  }
+}
+const v1 = new vehicle("bmw", 4);
+v1.getvehicleInfo();*/
+//---------------------------------------------------------------
+///inheritance////extend keyword///
+
+/*class vehicle {
+  constructor(name, wheels) {
+    this.name = name;
+    this.wheels = wheels;
+  }
+  getvehicleInfo() {
+    console.log(`i am a ${this.name} vehicle with ${this.wheels} wheels`);
+  }
+}
+class semiTruck extends vehicle {
+  constructor() {
+    super("semi truck", 12);
+  }
+}
+const v1 = new vehicle("bmw", 4);
+v1.getvehicleInfo();
+
+const v2 = new semiTruck();
+v2.getvehicleInfo();*/
+//--------------------------------------------------------------------------------

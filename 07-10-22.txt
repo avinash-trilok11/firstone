@@ -1,0 +1,74 @@
+07-10-22
+=========
+
+
+https://www.positronx.io/angular-ngswitch-directive-tutorial-with-examples/
+
+https://angular.io/guide/architecture-services
+===============================================================
+> ng new angular-testing
+ 
+> cd angular-testing
+ 
+> ng test
+ 
+ 
+> ng g s service/logger
+ 
+> ng g s service/calculator
+ 
+---------------------------------
+===calculator.service.ts======
+---------------------------------
+import { Injectable } from '@angular/core';
+import { LoggerService } from './logger.service';
+ 
+@Injectable({
+  providedIn: 'root'
+})
+export class CalculatorService {
+ 
+  constructor(private logger: LoggerService) { }
+ 
+  add(no1: number, no2: number){
+    this.logger.log('add function');
+    return no1 + no2;
+  }
+ 
+  sub(no1: number, no2: number){
+    this.logger.log('sub function');
+    return no1 - no2;
+  }
+}
+-----------------------------
+==calculator.service.spec.ts==
+-------------------------------
+describe('calculatorservice', () => {
+  it('should add two numbers', () => {
+    pending();
+  });
+  it('should sub two number', () => {
+    pending();
+  });
+});
+
+
+------------------------------
+=== logger.service.ts===
+------------------------
+@Injectable({
+  providedIn: 'root'
+})
+export class LoggerService {
+ 
+log(message: string){
+  console.log(message);
+}
+}
+---------------
+ng test
+===================================================
+
+videolink for angular full video
+https://youtu.be/pTec1e8oyc8
+Angular 8 Tutorial | Create Angular Project from Scratch | Angular Training | Edureka

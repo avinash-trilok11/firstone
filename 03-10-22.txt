@@ -1,0 +1,147 @@
+03-10-22
+=========
+
+one time:
+npm install -g @angular/cli
+ 
+ng new hello-angular
+ 
+cd hello-angular
+ 
+ng serve -o
+
+
+
+Angular: Is a devlopment platform(Framework), built on TypeScript:
+Component based Framework
+A collection of well integrated libraries including: routing, forms management, client-server communication
+devlop, build and test your code
+
+
+Component:
+1) reusability
+2) plug and play
+3) reduce testing time
+4) micro level lifecycle
+
+
+package.json : 
+==============
+name:
+version
+scripts:{
+"start" : "ng serve"
+}
+dependencies:
+devDependencies:
+    typescript
+    testing 
+---------------------------------
+assignments:
+1) yarn vs npm
+2) ^ vs ~ in package.json
+-----------------------------------
+exports= named exports and default exports
+https://vhudyma-blog.eu/2020-09-27-default-vs-named-export-what-is-the-difference/
+==================================================================================
+package.json--> 
+angular.json--> 
+             "main": "src/main.ts"
+
+           -->main.ts
+                   import { AppModule } from './app/app.module';
+                   platformBrowserDynamic().bootstrapModule(AppModule)
+ 
+           ---> app.module.ts
+ 
+        import { AppComponent } from './app.component';
+        @NgModule({
+          declarations: [AppComponent],
+                            imports: [BrowserModule],
+          providers: [],
+        bootstrap: [AppComponent]
+        })
+                           export class AppModule { }
+     --->app.component.ts
+        import { Component } from '@angular/core';
+        @Component({
+       selector: 'app-root',
+        templateUrl: './app.component.html',
+        styleUrls: ['./app.component.css']
+         })
+        export class AppComponent {
+         title = 'hello-angular';
+         }
+ 
+main.ts -> app.module.ts -> app.component.ts
+ 
+main.ts -> module(AppModule)(app.module.ts- @NgModule(4 sections)) -> comp(AppComponent)(app.component.ts - @Component(3 sections) )
+
+=========================================================================
+import { Component } from '@angular/core';
+@Component({
+  selector: 'app-root',
+  //templateUrl: './app.component.html',
+  template: `<h1> hello : {{ name}}</h1>
+              <h2> {{name +  " bye " }}</h2>
+              <h3> {{name.length}} </h3>
+              <h4> {{name.toUpperCase()}}</h4>
+              <h4> {{ 10+10 }} </h4>
+              <h4> {{ getPlayerInfo()}} </h4>
+              <h4> {{url}}</h4>
+              <input type='text' value="natraj" [id]="myId"><br/>
+              <input type='text' [disabled]="false" value="natraj" id={{myId}}/>
+              player image: <img [src]="playerUrl" alt="player image"/>
+              `,
+  styles: [`
+  h1{
+    color: red
+  }
+  `],
+  //styleUrls: ['./app.component.css'],
+})
+export class AppComponent {
+  name: string = 'Sachin';
+  url: string = window.location.href;
+ playerUrl: string ="https://www.cricbuzz.com/a/img/v1/152x152/i1/c171004/sachin-tendulkar.jpg";
+  myId: string = 'textId';
+  getPlayerInfo(){
+    return "Sachin is cricket GOD ";
+  }
+}
+=========================================================================
+app.component.ts
+==================
+import { Component } from '@angular/core';
+import { Player } from 'src/player';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    {{ player.name }} details: <br />
+    id: {{ player.id }} - name: {{ player.name }} - category:
+    {{ player.category }}<br />
+    image: <img [src]="player.image" alt="player image" />
+  `,
+})
+export class AppComponent {
+  player: Player = {
+    id: 1,
+    name: 'Pant',
+    category: 'Keeper',
+    image:
+      'https://www.cricbuzz.com/a/img/v1/152x152/i1/c171010/rishabh-pant.jpg',
+  };
+}
+
+player.ts
+===========
+export interface Player {
+  id: number;
+  name: string;
+  category: string;
+  image: string;
+}
+=======================================================================
+https://angular.io/
+=====================

@@ -1,0 +1,94 @@
+
+				---JSON SERVER creation-----
+
+1) npm init
+ 2) npm install json-server --save
+ 3) create server.json file
+{
+    "players": [
+        {
+            "id": 1,
+            "name": "virat",
+            "country": "india",
+            "category": "batter",
+            "image": "https://www.cricbuzz.com/a/img/v1/152x152/i1/c170661/virat-kohli.jpg"
+        },
+        {
+            "id": 2,
+            "name": "dhoni",
+            "country": "india",
+            "category": "keeper",
+            "image": "https://www.cricbuzz.com/a/img/v1/152x152/i1/c170677/ms-dhoni.jpg"
+        },
+        {
+            "id": 3,
+            "name": "rohit",
+            "country": "india",
+            "category": "batter",
+            "image": "https://www.cricbuzz.com/a/img/v1/152x152/i1/c170658/rohit-sharma.jpg"
+        },
+        {
+            "id": 4,
+            "name": "rahul",
+            "country": "india",
+            "category": "batter",
+            "image": "https://www.cricbuzz.com/a/img/v1/152x152/i1/c170673/kl-rahul.jpg"
+        }
+    ]
+}
+ 
+4) in package.json file:
+  add in  scripts tag:
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"json-server -p 3006 -w server.json"
+  },
+
+5) npm start
+ 
+http://localhost:3006/players
+===================================================================================
+1) create angular project with angular-cric
+ 
+2)add bootstrap to project: npm install bootstrap  
+   in angular.json file:
+      "styles": [
+              "src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.css"
+            ],
+3)create  7 components:
+1) add-player
+2) delete-player
+3) update-player
+4) view-player
+5) view-players
+6) header
+7) home
+8) create route
+==================================================================
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<a class="navbar-brand" href="#">Cricket App</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+ 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav mr-auto">
+<li class="nav-item active">
+<a class="nav-link" routerLink="../">Home <span class="sr-only"></span></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" routerLink="/add">Add</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" routerLink="/update">Update</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" routerLink="/delete">Delete</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" routerLink="/view">View</a>
+</li>
+</ul>
+</div>
+</nav>

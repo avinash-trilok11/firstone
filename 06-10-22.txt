@@ -1,0 +1,167 @@
+06-10-22
+=========	
+			=================MY ANGULAR====file==================
+player.ts                   
+=========
+export interface Player {
+  id: number;
+  name: string;
+  category: string;
+  country: string;
+}
+--------------------------------------
+app.component.html
+=====================
+<div *ngFor="let player of players">
+  <h3>
+    {{ player.id }} - {{ player.name }} - {{ player.category }} -
+    {{ player.country }}
+  </h3>
+</div>
+-----------------------------------------------------
+app.component.ts
+=================
+
+import { Component } from '@angular/core';
+import { Player } from '../player';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+})
+export class AppComponent {
+  players: Player[] = [
+    {
+      id: 1,
+      name: 'virat',
+      category: 'batter',
+      country: 'india',
+    },
+    {
+      id: 2,
+      name: 'dhoni',
+      category: 'allrounder',
+      country: 'india',
+    },
+    {
+      id: 3,
+      name: 'sachin',
+      category: 'batter',
+      country: 'india',
+    },
+  ];
+}
+=====================================================================================
+===parent and child & child and parent relation===
+
+Child.ts
+ 
+  @Output playerEvent = new EventEmitter()<String>
+ 
+
+sendPlayer(){
+ 
+playerEvent.emit('Sachin');
+ 
+}
+------------------
+Child.html
+-----------
+<button (click)="sendPlayer()"> Send Player </button>
+-----------------------
+ 
+App.html
+-------------
+ 
+<app-child (playerEvent)="parentFunction($event)"></app-child>
+ 
+--------------
+App.ts
+---------
+parentFunction(value: string){
+console.log(value);--> printls Sachin on the console.
+}
+--------------------------------------------------------------------------------------------
+https://angular.io/guide/inputs-outputs
+https://angular.io/guide/router
+-----------------------------------------------------------------------------------------------
+
+Child.ts
+------------
+ 
+@Output bollywoodEvent = new EventEmitter()<String>;
+ 
+addBollywood(){
+bollywoodEvent.emit('Katrina');
+}
+ 
+-------------
+Child.html:
+ 
+<button (click) ="addBollywood">Add to bollywood</button>
+----------------------
+App.html:
+--------
+<app-child (bollywoodEvent) = "myEvent($event)"></app-child>
+ 
+---------------
+App.ts
+----------
+ 
+myEvent(value: string){
+console.log(value);--> prints Katrina
+}
+====================================================================================================================
+          ====child to parent communication=====
+Child to Parent Communication
+ 
+player.ts
+--------
+export interface Player{
+id: number;
+name: string;
+category: string;
+}
+Child.ts
+-----------
+ 
+@Output playerEvent = new EventEmitter()<Player>();
+ 
+addPlayer(){
+Player plr ={
+id: 1,
+name: 'virat',
+category: 'batter'
+}
+playerEvent.emit(plr);
+---------------
+App.html:
+<app-child (playerEvent)="appFunction($event)"></app-child>
+ 
+-----------
+App.ts
+---------
+addFunction(player: Player){
+console.log(player.id+" "+player.name+" "+player.category);
+}
+has context menu
+=====================================================================================
+ng new angular-routing
+cd angular-routing
+ 
+ng serve -o
+ 
+create 2 components: 1) programming-languages
+2) spoken-languages
+in programming-languages.component.html:
+<p>programming-languages</p>
+<p>Java, Go Lang, Rust</p>
+ 
+in spoken-languages.component.html:
+<p>spoken-languages</p>
+<p> English, Spanish, German, French</p>
+ 
+in app.component.html :
+<app-spoken-languages></app-spoken-languages>
+<app-programming-languages></app-programming-languages>
+

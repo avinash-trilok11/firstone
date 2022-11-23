@@ -1,0 +1,240 @@
+28-09-22
+---------
+var employees = [
+{ id: 1, sal: 150, lastPaidDate: new Date(2021, 3, 1) },
+{ id: 2, sal: 450, lastPaidDate: new Date(2021, 2, 1) },
+{ id: 3, sal: 350, lastPaidDate: new Date(2021, 2, 1) },
+{ id: 4, sal: 650, lastPaidDate: new Date(2021, 3, 1) },
+{ id: 3, sal: 6350, lastPaidDate: new Date(2021, 2, 1) },
+];
+var due = 0;
+var march = new Date(2021, 3, 1);
+due = employees.reduce((preValue, emp) => {
+if (new Date(emp.lastPaidDate) < march) {
+return emp.sal + preValue;
+}
+return preValue;
+}, 0);
+console.log(due);
+---------------------------------------------------------------------
+var date = {};
+function setKeyAndValue(key, value) {
+  console.log("key--->+key");
+  date[key] = value;						dynamic keys into object
+}
+setKeyAndValue("name", "dhoni");
+setKeyAndValue("type", "keeper");
+console.log(date);									output;key--->+key{ name: 'dhoni', type: 'keeper' }
+-------------------------------------------------------------------------------------------------------------------------------------
+var players = {};
+function addPlayers(key, player) {
+  players[key] = player;
+}
+function getPlayer(key) {
+  return players[key];
+}
+addPlayers(1, { name: "dhoni", category: "keeper" });
+addPlayers(2, { name: "kohli", category: "bats" });
+addPlayers(3, { name: "rohit", category: "open" });
+
+console.log(getPlayer(3));
+players[3].name = "sharma";
+players[3].category = "all rounder";
+console.log(players[3]);
+----------------------------------------------------------------------------------------------------
+
+var employees = [
+  { id: 1, sal: 150, lastPaidDate: "2021-03-01" },
+  { id: 2, sal: 450, lastPaidDate: "2021-01-01" },
+  { id: 3, sal: 350, lastPaidDate: "2021-02-01" },
+  { id: 4, sal: 650, lastPaidDate: "2020-12-01" },
+  { id: 5, sal: 350, lastPaidDate: "2021-02-01" },
+  { id: 6, sal: 750, lastPaidDate: "2021-03-01" },
+];
+							//"2021-03-01":150+750=900  how much did i pay every month
+var dates = {};
+employees.forEach((emp) => {
+  if (emp.lastPaidDate in dates) {
+    dates[emp.lastPaidDate] += emp.sal;
+  } else {
+    dates[emp.lastPaidDate] = emp.sal;
+  }
+});
+console.log(dates);
+----------------------------------------------------------------------------------------
+		//players.json file//
+{
+  "1": { "id": 10, "name": "Virat", "category": "Batter" },
+  "2": { "id": 20, "name": "Dhoni", "category": "Keeper Batter" },
+  "3": { "id": 30, "name": "Rohit", "category": "Batter" },
+  "4": { "id": 40, "name": "Rahul", "category": "Batter" }
+}
+
+		//players.js file//
+var players = require("./players.json");					keys--->1,2,3,410ViratBatter20DhoniKeeper Batte
+function getPlayers() {
+  console.log("keys--->" + Object.keys(players));
+  Object.keys(players).forEach((id) =>
+    console.log(
+      players[id].id + "" + players[id].name + "" + players[id].category
+    )
+  );
+}
+getPlayers();
+-----------------------------------------------------------------------------------------
+function magic(fun1, fun2) {
+  var xreturnvalue = fun1();
+  var yreturnvalue = fun2();
+  return function (sal) {
+    return xreturnvalue + yreturnvalue + sal;
+  };
+}
+function x() {
+  console.log("x function");
+  return "x()";
+}
+function y() {
+  console.log("y function");
+  return "y()";
+}
+console.log(magic(x, y)(6666));
+-------------------------------------------------------------------------
+
+[                                ///// employe.json
+  {
+    "id": 1,
+    "name": "Shankar",
+    "salary": 39999.99,
+    "currency": "INR" },
+ {
+    "id": 2,
+    "name": "John",
+    "salary": 8000.0,
+    "currency": "USD"
+  },
+  {
+    "id": 3,
+    "name": "Adrian",
+    "salary": 13000.0,
+    "currency": "EUR"
+  },
+  {
+    "id": 4,
+    "name": "Brian",
+    "salary": 6500.0,
+    "currency": "GBP"
+  },
+  {
+    "id": 5,
+    "name": "Satoshi",
+    "salary": 100000.0,
+    "currency": "JPY"
+  },
+  {
+    "id": 6,
+    "name": "Vitalik",
+    "salary": 200000.0,
+    "currency": "RR"
+  },
+  {
+    "id": 7,
+    "name": "Xiao",
+    "salary": 19999.99,
+    "currency": "SGD"
+  },
+  {
+    "id": 8,
+    "name": "Jiaji",
+    "salary": 25000.0,
+    "currency": "MYR"
+  },
+  {
+    "id": 9,
+    "name": "Riddhima",
+    "salary": 32000.0,
+    "currency": "INR"
+  },
+  {
+    "id": 10,
+    "name": "Raul",
+    "salary": 12000.0,
+    "currency": "USD"
+  },
+  {
+    "id": 11,
+    "name": "Juan",
+    "salary": 15200.0,
+    "currency": "EUR"
+  },
+  {
+    "id": 12,
+    "name": "Catherine",
+    "salary": 9300.0,
+    "currency": "GBP"
+  },
+  {
+    "id": 13,
+    "name": "Nakamura",
+    "salary": 210000.0,
+    "currency": "JPY"
+  },
+  {
+    "id": 14,
+    "name": "Oleksandr",
+    "salary": 48000.0,
+    "currency": "RR"
+  },
+  {
+    "id": 15,
+    "name": "Benjamin",
+    "salary": 24999.0,
+    "currency": "SGD"
+  },
+  {
+    "id": 16,
+    "name": "Hussain",
+    "salary": 34000.0,
+    "currency": "MYR"
+  }
+]
+--------------------------------------------------------------------
+//total amount paid in USD and INR				///employe.json
+//INR: 71,999.99						///employe.js
+//USD: 20000
+var employees = require('./employees.json');
+var salaries = employees.reduce((accumulator, emp) => {
+    if (emp.currency === 'INR' || emp.currency === 'USD') {
+        accumulator[emp.currency] += emp.salary;
+    }
+    return accumulator;
+},
+    { INR: 0, USD: 0 }
+);
+console.log(salaries.INR.toFixed(2) + "   "+ salaries.USD);
+-----------------------------------------------------------------------------
+								//employe.js  //employe.json
+var exceptedCurrencies = ["INR", "GBP"];
+var emplist = employes.filter((emp) =>
+  exceptedCurrencies.includes(emp.currency)
+);
+emplist.forEach((emp) => {
+  console.log(emp.id + " " + emp.name + " " + emp.salary + " " + emp.currency);
+});
+-------------------------------------------------------------------------------
+https://www.javascripttutorial.net/array/javascript-sort-an-array-of-objects/
+Sort an Array of Objects by Values of Object's Properites in JavaScript
+In this tutorial, you will learn how to sort an array of objects by the values of the object's properties.
+------------------------------------------------------------------------------------------------------------
+var employes = require("./employe.json");					///employe.json
+var currenciesListed = {};							///employe.js
+var empList = employes.filter((emp) => {
+  if (!(emp.currency in currenciesListed)) {				///unique values output
+    currenciesListed[emp.currency] = true;
+    return true;
+  }
+  return false;
+});
+empList.forEach((emp) => {
+  console.log(emp.id + " " + emp.name + " " + emp.currency);
+});
+

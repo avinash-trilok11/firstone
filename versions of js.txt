@@ -1,0 +1,199 @@
+					VERSIONS OF JAVA SCRIPT AND ITS FEATURES
+                              =========================================
+es5 version
+--------------
+--------------
+
+-arrayfeatures 
+---------------                 -jsonfeatures                         -datefeatures
+_isArray()				stringify()						valueof()
+var data=[1,2,3,4]
+console.log(array.isArray(data))
+==this helps to find is array or not  ===
+            
+                                      
+_map()
+===we can modify the array of values
+var data=[1,2,3,4]
+ var output = data.map(
+function(element){
+return element+1    ====[2,3,4,5]
+}
+}console.log(output)
+
+
+
+_filter()
+  ===based onthe condition it return the value
+var data=[1,2,3,4]
+ var output = data.filter(
+function(element){
+return element>2   ====[3,4]
+}
+}console.log(output)
+
+
+
+foreach()
+=====it doesnot return any array of value
+var data =[1,2,3,4]
+data.forEach(
+function(element)
+console.log(element)   ====1 2 3 4 columnwise
+});
+
+
+_every()
+=====if condition is true its true
+var data =[1,2,3,4]
+ var output=data.every(
+function(element){
+return element>0   ==== true
+});
+console.log(output)
+
+
+some()
+=====if one contion is true its true
+var data =[1,2,3,4]
+ var output=data.some(
+function(element){
+return element>2  ==== true
+});
+console.log(output)
+
+
+indexof()
+=========
+var data =[1,2,3,4]
+console.log(data.indexof(4))   ===3
+lastindexof()
+============
+var data =[1,2,3,4,5,6,4]
+console.log(data.lastindexof(4)) ====6
+
+
+stringify()
+==========converts objects into json
+var data ={
+name:'john'
+age:28
+var json=JSON.stringfy(data)
+console.log(json)           ===={"name":"json",age:28}
+
+
+valueof()
+========== it will provide you in terms of milliseconds of actual time
+var date=newdate()
+console.log(date,valueOf())
+----------------------------------------------------------------------------------------------------
+ES6 /ecmascript 2015
+---------------------
+---------------------
+let&const
+arrowfunctions , classes ,default parameters ,rest operator,spread operator , destructuring
+for..of
+
+----------------------------------------------------------------------------------------------
+ ES7 /ecmascript 2016
+-----------------------
+---------------------
+exponentiation operator
+====================== for checking the power of the value **
+console.log(2**2) ===4
+
+
+includes()
+========== is there are not init, if there true
+let person=[1,2,3]
+console.log(person.includes(3))====true
+-----------------------------------------------------------------------------------------
+ES8 /ecmascript  2017
+---------------------
+---------------------
+padStart() , padEnd() ,Object.entries ,Object.values, Async/Await
+
+
+padStart(),padEnd()
+===================based on index position
+let data="hello"
+console.log(data.padStart(8,"*") ==== ***hello
+console.log(data.padEnd(8,"*") ==== hello***
+
+
+object.entries
+=============== store value and keypairs displays arrray of array
+let data={
+name:"john",
+age:25,
+mail:"@gmail"}
+console.log(Object.entries(data))====["name":"john","age":25,"mail":"@gmail"]
+
+
+Object.values
+==============gives only the values
+
+let data={
+name:"john",
+age:25,
+mail:"@gmail"}
+console.log(Object.values(data))=====["john",25,"@gmail]
+
+-----------------------------------------------------------------------------------------
+ES9  /ecmascript 2018
+-----------------------
+-----------------------
+rest/spreadproperties===arguments can be transferred to a function
+--------------------------------------------------------------------------------------
+ES10 /ecmascript 2020
+----------------------
+---------------------------
+Flat ,Function.toString, trimEnd, Object.fromEntries
+
+
+flat
+----- array into array convert into one array
+let data =[1,2,3,[4,5,6,[7,8,9]]]
+console.log(date.flat(1))  =======[1,2,3,4,5,6[7,8,9]]
+console.log(data.flat(2))  ========[1,2,3,4,5,6,7,8,9]
+
+
+function.toString
+------------------
+converts function into string
+finction fun(){
+console.log("hello world")
+}
+console.log(fun.toString())=======   finction fun(){
+                                        console.log("hello world")}
+
+
+trimStart , trimEnd
+--------------------
+let data ="  hello"
+console.log(data.trimStart()) ====== trims the unwanted space at the  starting
+console.log(data.trimEnd()) ========= trims at the end
+
+
+Object.fromEntries    === converts array of array to object
+----------------
+let data = [['name','john'],['age',25]]   ==== { name:"john",age:25}
+console.log(Object.fromEntries(data))
+------------------------------------------------------------------------------------
+ES11 
+-----
+-------
+dynamic import
+nullish operator
+optional chaining
+bigInt(number.max_safe_integer)
+2**53-1 =9007199254740991
+-------------------------------------------------------------------------------------
+ES12
+------
+--------
+String.propertotype.replaceAll()
+Numeric Seperators
+Logical Assaignment Operators
+&&=,||=
+
