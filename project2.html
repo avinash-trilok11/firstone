@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
+      .input-field {
+        padding-left: 10px;
+        margin: 2px;
+        border-radius: 10px;
+        width: 200px;
+        height: 40px;
+        background-color: lightgray;
+      }
+
+      .login-button1,
+      .login-button3,
+      .login-button2,
+      .login-button4 {
+        width: 70px;
+        height: 25px;
+        background-color: lightslategray;
+        color: black;
+        border-radius: 30px;
+        font-size: 16px;
+        margin-top: 10px;
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>LOGIN AND CALCULATOR FORM</p>
+      <form onsubmit="return onFormSubmit(event)" name="loginForm">
+        <input
+          name="username"
+          class="input-field"
+          type="text"
+          placeholder="Username"
+        />
+        <br />
+        <input
+          name="password"
+          class="input-field"
+          type="password"
+          placeholder="Password"
+        />
+        <br />
+        <button class="login-button">Login</button>
+      </form>
+
+      <form name="Adding">
+        <input
+          name="Number1"
+          class="input-field"
+          type="number"
+          placeholder=" type first number"
+        /><br />
+        <input
+          name="Number2"
+          class="input-field"
+          type="number"
+          placeholder="type second number"
+        /><br />
+        <button onclick="add(event)" class="login-button1">Add</button>
+        <button onclick="sub(event)" class="login-button2">Sub</button><br />
+        <button onclick="mul(event)" class="login-button3">Mul</button>
+        <button onclick="div(event)" class="login-button4">Div</button>
+      </form>
+    </div>
+    <script>
+      const onFormSubmit = (event) => {
+        event.preventDefault();
+        var formData = document.forms.loginForm.username.value;
+        var formData1 = document.forms.loginForm.password.value;
+        console.log(formData);
+        console.log(formData1);
+      };
+
+      const add = (event) => {
+        event.preventDefault();
+        var a = document.forms.Adding.Number1.value;
+        var b = document.forms.Adding.Number2.value;
+        console.log(parseInt(a) + parseInt(b));
+      };
+
+      const sub = (event) => {
+        event.preventDefault();
+        var a = document.forms.Adding.Number1.value;
+        var b = document.forms.Adding.Number2.value;
+        console.log(parseInt(a) - parseInt(b));
+      };
+
+      const mul = (event) => {
+        event.preventDefault();
+        var a = document.forms.Adding.Number1.value;
+        var b = document.forms.Adding.Number2.value;
+        console.log(parseInt(a) * parseInt(b));
+      };
+
+      const div = (event) => {
+        event.preventDefault();
+        var a = document.forms.Adding.Number1.value;
+        var b = document.forms.Adding.Number2.value;
+        console.log(parseInt(a) / parseInt(b));
+      };
+    </script>
+  </body>
+</html>

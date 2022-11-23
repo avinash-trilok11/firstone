@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+      .item {
+        width: 400px;
+        background-color: aliceblue;
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>list of all users</p>
+      <div class="item"><p>practise</p></div>
+    </div>
+
+    <script>
+      var users = [];
+      var url = "http://localhost:4000/";
+      var data = fetch(url).then((response) => {
+        response.json().then((res) => {
+          console.log(res);
+          res.map((user) => {
+            console.log(users.name);
+          });
+        });
+      });
+      console.log(data);
+    </script>
+  </body>
+</html>

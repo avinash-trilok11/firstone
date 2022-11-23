@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+      }
+      .login-button {
+        width: 80px;
+        height: 20px;
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>login account</p>
+      <form onsubmit="return onFormSubmit(event)" name="loginForm">
+        <input
+          name="username"
+          class="input-field"
+          type="text"
+          placeholder="username"
+        />
+        <br />
+        <input
+          name="password"
+          class="input-field"
+          type="password"
+          placeholder="password"
+        />
+        <br />
+        <button type="submit" class="login-button">login</button>
+      </form>
+    </div>
+    <script>
+      const onFormSubmit = (event) => {
+        event.preventDefault();
+        var formData = document.forms.loginForm.username.value;
+        var formData1 = document.forms.loginForm.password.value;
+
+        console.log(formData);
+        console.log(formData1);
+      };
+    </script>
+  </body>
+</html>

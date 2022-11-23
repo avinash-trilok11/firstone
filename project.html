@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./task1.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-card">
+        <div class="input-container">
+          <input
+            placeholder="enter here"
+            class="text1"
+            type="text"
+            id="task_id"
+          />
+          <button onclick="addNewTask()" class="button1">add</button>
+        </div>
+        <div class="container2" id="task_element"></div>
+      </div>
+    </div>
+    <script>
+      var todotasks = [];
+      const addNewTask = () => {
+        var element = document.getElementById("task_id");
+        todotasks.push(element.value);
+        console.log(todotasks);
+
+        element.value = "";
+        finalHtml = "";
+
+        todotasks.map((task, index) => {
+          finalHtml +=
+            `<div class="row">
+              <div class="col-sm-1">` +
+            (index + 1) +
+            `</div>
+              <div class="col-sm-8">`;
+          finalHtml +=
+            task +
+            `</div>
+              <div class="col-sm-3">
+                  <i onclick="deleteTask(` +
+            index +
+            `)"class="fa-sharp fa-solid fa-trash icon-style"></i>
+              </div></div>`;
+        });
+        document.getElementById("task_element").innerHTML = finalHtml;
+      };
+
+      const deleteTask = (taskIndex) => {
+        var remainTask = [];
+        todotasks.map((task, index) => {
+          if (index != taskIndex) {
+            remainTask.push(task);
+          }
+        });
+        todotasks = remainTask;
+        finalHtml = "";
+
+        todotasks.map((task, index) => {
+          finalHtml +=
+            `<div class="row">
+      <div class="col-sm-1">` +
+            (index + 1) +
+            `</div>
+      <div class="col-sm-8">`;
+          finalHtml +=
+            task +
+            `</div>
+      <div class="col-sm-3">
+          <i onclick="deleteTask(` +
+            index +
+            `)"class="fa-sharp fa-solid fa-trash icon-style"></i>
+      </div></div>`;
+        });
+        document.getElementById("task_element").innerHTML = finalHtml;
+      };
+    </script>
+  </body>
+</html>
