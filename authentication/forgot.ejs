@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,intial-scale=1" />
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="card-container">
+      <div class="login-card"> 
+        <h3>Change Password :</h3>
+        
+        <p id = "error_id"></p>
+        <div class="input-row">
+          <label class="input-row-label"
+            >Enter your username</label
+          ><br />
+          <input id = "username_id"
+            placeholder="Enter registered Username"
+            class="input-row-input"
+          />
+        </div>
+
+        <div class="input-row">
+          
+        <button onclick="onSave()" class="design">send</button>
+       </div>
+    </div>
+  </body>
+  <script>
+    const onSave = async () => {
+        const usernameElement = document.getElementById("username_id")
+        var obj = {
+          username:usernameElement.value,
+        }
+        var url ="http://localhost:4003/api/forgot-password"
+        
+        var response = await fetch(url, {
+          method:"POST",
+          headers:{
+            Accept:"application/json",
+            "Content-Type":"application/json"
+          },
+          body:JSON.stringify(obj)
+        })
+
+        var response = await response.json();
+
+       var error  = document.getElementById("error_id")
+        if(response.status === false){
+          error.innerText = response.msg
+          error.style.color = "red"
+        }
+        else{
+            error.innerText = ""
+            console.log(response.token);
+            window.location.href = "reset-password" 
+        }
+    };
+  </script>
+</html>
+
+
+
+
